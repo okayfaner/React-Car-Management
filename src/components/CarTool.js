@@ -3,6 +3,7 @@ import * as React from 'react';
 import { ToolHeader } from './ToolHeader';
 import { CarTable } from './CarTable';
 import { CarForm } from './CarForm';
+import Car from './Car'
 
 export class CarTool extends React.Component {
 
@@ -11,7 +12,7 @@ export class CarTool extends React.Component {
 
         this.state = {
             cars: this.props.cars.concat(),
-            carToEdit: {},
+            carToEdit: new Car(null, null, null, null, null),
         };
         this.onChange = this.onChange.bind(this);
     }
@@ -52,7 +53,7 @@ export class CarTool extends React.Component {
     cancelCar = () => {
         this.setState({
             cars: this.state.cars.concat(),
-            carToEdit: {},
+            carToEdit: new Car(),
         });
     }
 
